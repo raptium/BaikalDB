@@ -1,17 +1,17 @@
 version: "3.8"
 services:
   meta:
-    image: ghcr.io/tullyliu/baikaldb:7f4b20fd4f0d60b59fb9c8adbffaf510492e9673
+    image: ghcr.io/tullyliu/baikaldb:2433c927f1b8c0081eca82a1a6c5b2296d2ddf82
     command: meta
     ports:
       - "8010:8010"
   store:
-    image: ghcr.io/tullyliu/baikaldb:7f4b20fd4f0d60b59fb9c8adbffaf510492e9673
+    image: ghcr.io/tullyliu/baikaldb:2433c927f1b8c0081eca82a1a6c5b2296d2ddf82
     command: store
     depends_on: 
       - meta
   db: 
-    image: ghcr.io/tullyliu/baikaldb:7f4b20fd4f0d60b59fb9c8adbffaf510492e9673
+    image: ghcr.io/tullyliu/baikaldb:2433c927f1b8c0081eca82a1a6c5b2296d2ddf82
     command: db
     depends_on: 
       - meta

@@ -8,11 +8,12 @@ startMeta()
         --meta_port=8010 \
         --meta_replica_number=${META_REPLICA_NUMBER:-1} \
         --meta_server_bns=${META_SERVER_BNS:-$(hostname -i):8010}
+
     source script/init_meta_server.sh $(hostname -i):8010
     source script/create_namespace.sh $(hostname -i):8010
     source script/create_database.sh $(hostname -i):8010
     source script/create_user.sh $(hostname -i):8010
-
+}
 startStore()
 {
     echo "Starting baikalStore"

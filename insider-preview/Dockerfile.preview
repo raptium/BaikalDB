@@ -12,7 +12,7 @@ COPY ./output/baikaldb /app/bin/baikaldb
 COPY ./output/baikalMeta /app/bin/baikalMeta
 COPY ./output/baikalStore /app/bin/baikalStore
 COPY ./conf /app/conf
-COPY ./src/tools/script /app/script
+COPY ./insider-preview/initscript /app/script
 COPY ./insider-preview/entrypoint.sh /app/entrypoint.sh
 
 # set entrypoint

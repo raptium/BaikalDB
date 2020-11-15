@@ -13,7 +13,7 @@ COPY ./output/baikalMeta /app/bin/baikalMeta
 COPY ./output/baikalStore /app/bin/baikalStore
 COPY ./conf /app/conf
 COPY ./src/tools/script /app/script
-COPY ./entrypoint.sh /app/entrypoint.sh
+COPY ./insider-preview/entrypoint.sh /app/entrypoint.sh
 
 # set entrypoint
 ENV PATH /app/bin:$PATH

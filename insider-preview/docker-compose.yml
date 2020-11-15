@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  meta:
+    image: ghcr.io/tullyliu/baikaldb:7f4b20fd4f0d60b59fb9c8adbffaf510492e9673
+    command: meta
+    ports:
+      - "8010:8010"
+  store:
+    image: ghcr.io/tullyliu/baikaldb:7f4b20fd4f0d60b59fb9c8adbffaf510492e9673
+    command: store
+    depends_on: 
+      - meta
+  db: 
+    image: ghcr.io/tullyliu/baikaldb:7f4b20fd4f0d60b59fb9c8adbffaf510492e9673
+    command: db
+    depends_on: 
+      - meta
+      - store
+    ports: 
+      - "28282:28282"

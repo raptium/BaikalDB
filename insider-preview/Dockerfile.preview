@@ -4,10 +4,9 @@ FROM ubuntu:20.04
 # install runtime dependencies
 RUN apt-get update
 RUN apt-get install -y \
-    libssl1.1 \
+    libssl1.1 curl\
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install -y curl
 # copy artifacts 
 COPY ./output/baikaldb /app/bin/baikaldb
 COPY ./output/baikalMeta /app/bin/baikalMeta

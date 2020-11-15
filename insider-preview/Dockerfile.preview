@@ -19,4 +19,5 @@ COPY ./insider-preview/entrypoint.sh /app/entrypoint.sh
 ENV PATH /app/bin:$PATH
 WORKDIR /app/
 RUN mkdir -p /app/log/
+RUN chmod +x /app/entrypoint.sh
 ENTRYPOINT [ "/app/entrypoint.sh" ]

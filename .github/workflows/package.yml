@@ -1,0 +1,25 @@
+name: package
+
+on:
+  workflow_dispatch:
+
+jobs:
+  package:
+    name: build package
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - ubuntu:16.04
+          - ubuntu:18.04
+          - ubuntu:20.04
+    container:
+      image: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: sudo apt-get update && sudo apt-get install -y build-essential autoconf automake libtool flex bison libssl-dev libz-dev
+      - name: Install Bazelisk
+        uses: vsco/bazelisk-action@1.1
+      - name: Build
+        run: bazelisk build //:all

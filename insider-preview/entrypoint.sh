@@ -8,7 +8,7 @@ startMeta()
         --meta_port=8010 \
         --meta_replica_number=${META_REPLICA_NUMBER:-1} \
         --meta_server_bns=${META_SERVER_BNS:-$(hostname -i):8010}
-
+    sleep 30
     source script/init_meta_server.sh $(hostname -i):8010
     source script/create_namespace.sh $(hostname -i):8010
     source script/create_database.sh $(hostname -i):8010
@@ -25,10 +25,12 @@ startStore()
         --snapshot_uri=${SNAPSHOT_URI:-local://./raft_data/snapshot} \
         --meta_server_bns=${META_SERVER_BNS:-meta:8010} \
         --store_port=8110
+    sleep 30
 }
 
 startDb() {
     echo "Starting baikaldb"
+    source script/create_internal_table.sh meta:8010
     baikaldb \
         --meta_server_bns=${META_SERVER_BNS:-meta:8010} \
         --fetch_instance_id=${FETCH_INSTANCE_ID:-true} \

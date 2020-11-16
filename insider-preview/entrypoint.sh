@@ -14,10 +14,10 @@ startMeta()
 startStore()
 {
     echo "Starting baikalStore"
-    source script/init_meta_server.sh $(hostname -i):8010
-    source script/create_namespace.sh $(hostname -i):8010
-    source script/create_database.sh $(hostname -i):8010
-    source script/create_user.sh $(hostname -i):8010
+    source script/init_meta_server.sh meta:8010
+    source script/create_namespace.sh meta:8010
+    source script/create_database.sh meta:8010
+    source script/create_user.sh meta:8010
     baikalStore \
         --db_path=${DB_PATH:-/app/db} \
         --election_timeout_ms=${ELECTION_TIMEOUT_MS:-10000} \

@@ -11,7 +11,7 @@ curl -d '{
         "namespace_name" : "TEST_NAMESPACE",
         "privilege_database" : [{
                                     "database" : "TestDB",
-                                    "database_rw" : 1                            
+                                    "database_rw" : "WRITE"                           
                                 }],
         "bns":["preonline", "offline"],
         "ip":["127.0.0.1", "127.0.0.2"]
